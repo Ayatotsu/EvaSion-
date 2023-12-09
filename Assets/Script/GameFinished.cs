@@ -7,14 +7,15 @@ public class GameFinished : MonoBehaviour
 
     public GameManager gameManager;
 
-    [Header("Panels")]
     public GameObject objCanvas;
     public GameObject panelGameOver;
+    public GameObject panelGameFinished;
 
-    [Header("GameElements")]
     public GameObject gameElements;
     public GameObject player;
     public GameObject obstacle;
+
+
 
     // Start is called before the first frame update
     void Start()
@@ -26,21 +27,37 @@ public class GameFinished : MonoBehaviour
         gameElements = GameObject.Find("GameElements").gameObject;
         player = gameElements.transform.Find("Biker_idle_0").gameObject;
         obstacle = gameElements.transform.Find("Obstacle").gameObject;
+        panelGameFinished = objCanvas.transform.Find("GameFinished").gameObject;
 
     }
 
-    private void OnCollisionEnter2D(Collision2D actor)
+    private void OnCollisionEnter2D(Collision2D collision)
     {
-        panelGameOver.gameObject.SetActive(true);
-        player.gameObject.SetActive(false);
-        obstacle.gameObject.SetActive(false);
+        //yeah boi
+        if (collision.gameObject.tag == "Player") //check if player collides to an object
+        {
+            panelGameOver.gameObject.SetActive(true);
+            player.gameObject.SetActive(false);
+            obstacle.gameObject.SetActive(false);
+
+        }
+    void OntriggerEnter2D(Collider2D actor)
+    {
+            if (actor.gameObject.tag == "Player" && Input.GetKeyDown(KeyCode.W))
+            {
+                panelGameFinished.gameObject.SetActive(true);
+                player.gameObject.SetActive(false);
+                obstacle.gameObject.SetActive(false);
+            }
+        }
+
         
-        Debug.Log("GAME OVER!");
+
     }
     // Update is called once per frame
     void Update()
     {
         
     }
-
+    
 }

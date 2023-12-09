@@ -16,19 +16,19 @@ public class PortalScript : MonoBehaviour
             Debug.Log("Entered the portal...");
         }
     }
-    void OnTriggerEnter2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Player") //check if player collides to an object
-        {
-            isRange = true;
+    //void OnTriggerEnter2D(Collider2D collision)
+    //{
+        //if (collision.gameObject.tag == "Player") //check if player collides to an object
+        //{
+            //isRange = true;
             
-        }
-    }
-    private void OnTriggerExit2D(Collider2D collision)
-    {
-        if (collision.gameObject.tag == "Player") //check if player collides to an object
-        {
-            isRange = false;
-        }
-    }
+        //}
+    //}
+    //private void OnTriggerExit2D(Collider2D collision)
+    //{
+        //if (collision.gameObject.tag == "Player") //check if player collides to an object
+        //{
+            //isRange = false;
+        //}
+    //}
 }
