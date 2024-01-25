@@ -36,4 +36,6 @@ public class GameManager : MonoBehaviour
         Time.timeScale = 0;
         Debug.Log("GAME OVER!");
     }
+
+
 }
